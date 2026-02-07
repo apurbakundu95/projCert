@@ -1,0 +1,3 @@
+[test-server]
+18.212.190.111 ansible_user=ubuntu
+
