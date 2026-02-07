@@ -30,8 +30,8 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 sh '''
-                docker save php-app | ssh prod-server docker load
-                ssh prod-server docker run -d -p 8090:80 php-app
+                docker save php-app | ssh -o StrictHostKeyChecking=no ubuntu@174.129.163.255 docker load
+                ssh -o StrictHostKeyChecking=no ubuntu@174.129.163.255 docker run -d -p 8091:80 php-app
                 '''
             }
         }
@@ -40,7 +40,7 @@ pipeline {
     post {
         failure {
             sh '''
-            ssh test-server docker rm -f php-app || true
+            sh "ssh -o StrictHostKeyChecking=no ubuntu@18.212.190.111 docker rm -f php-app || true"
             '''
         }
     }
