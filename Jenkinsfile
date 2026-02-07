@@ -6,9 +6,8 @@ pipeline {
         stage('Install Puppet Agent') {
             steps {
                 sh '''
-                ssh test-server '
-                sudo apt install puppet-agent -y
-                '
+                ssh -o StrictHostKeyChecking=no ubuntu@18.212.190.111 \
+                "sudo apt update && sudo apt install puppet-agent -y"
                 '''
             }
         }
