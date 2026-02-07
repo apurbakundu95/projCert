@@ -14,7 +14,7 @@ pipeline {
 
         stage('Install Docker using Ansible') {
             steps {
-                sh 'ansible-playbook ansible/docker-install.yml'
+                sh 'ansible-playbook -i ansible/hosts ansible/docker-install.yml'
             }
         }
 
