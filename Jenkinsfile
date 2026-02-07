@@ -26,7 +26,7 @@ pipeline {
                 '''
             }
         }
-        /*
+        
         stage('Deploy to Production') {
             steps {
                 sh '''
@@ -36,7 +36,7 @@ pipeline {
             }
         }
     }
-   */
+   
     post {
         failure {
             sh '''
