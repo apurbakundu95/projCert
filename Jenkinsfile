@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                 docker save php-app | ssh prod-server docker load
-                ssh prod-server docker run -d -p 80:80 php-app
+                ssh prod-server docker run -d -p 8090:80 php-app
                 '''
             }
         }
